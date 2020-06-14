@@ -74,6 +74,8 @@ if(WIN32 OR "${CMAKE_SYSTEM}" MATCHES "Windows")
     target_compile_definitions(captnlog PRIVATE WIN32_LEAN_AND_MEAN=1 _CRT_SECURE_NO_DEPRECATE=1 _CRT_NONSTDC_NO_DEPRECATE=1 _WINSOCK_DEPRECATED_NO_WARNINGS=1 NOMINMAX=1)
 endif()
 
+include(CheckSymbolExists)
+
 # Check for best macro that expands to current function name.
 check_symbol_exists(__PRETTY_FUNCTION__ "" HAVE_PRETTY_FUNCTION_MACRO)
 if(NOT HAVE_PRETTY_FUNCTION_MACRO)
